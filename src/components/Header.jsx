@@ -8,7 +8,8 @@ function Header(props) {
     position: "fixed",
     width: "100%",
     top: "0%",
-    backgroundColor: "black"
+    backgroundColor: "black",
+    zIndex: "1"
   }
 
   var header={
