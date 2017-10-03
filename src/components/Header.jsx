@@ -37,7 +37,7 @@ function Header(props) {
          <h1 style={header}>Portland Audition Database</h1>
        </div>
        <div className="nav navbar-nav navbar-right">
-         <h4 style={links}><NavLink to="/" style={linkColor}>Home</NavLink> | <NavLink to="/companies" style={linkColor}>Companies</NavLink></h4>
+         <h4 style={links}><NavLink to="/" style={linkColor}>Home</NavLink> | <NavLink to="/companies" style={linkColor}>Companies</NavLink> | <NavLink to="/admin" style={linkColor}>Admin</NavLink></h4>
        </div>
      </div>
    </div>
