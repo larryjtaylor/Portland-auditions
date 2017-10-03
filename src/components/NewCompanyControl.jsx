@@ -21,13 +21,17 @@ class NewCompanyControl extends React.Component {
   }
 
   render() {
+
+    var buttonStyle = {
+      marginLeft: "5%"
+    }
     return (
       <div>
         <Button
-            block
             bsStyle="primary"
             bsSize="large"
-            onClick={this.showFormModal}>
+            onClick={this.showFormModal}
+            style={buttonStyle}>
                 Add Company
         </Button>
         <Modal
