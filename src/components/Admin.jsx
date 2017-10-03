@@ -20,7 +20,6 @@ class Admin extends React.Component {
   }
 
   render() {
-    console.log("Current Path:", this.props.location.pathname);
     return (
       <div>
       <h3>This is the Admin page!</h3>
