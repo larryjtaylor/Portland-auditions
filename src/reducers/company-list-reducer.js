@@ -12,8 +12,10 @@ export default (state = [], action) => {
           image: image,
           id : id
         }
-      ];
-
+      ]
+    case 'CLOSE_COMPANY':
+      const updatedCompanyList = state.filter(company => company.id !== action.companyId);
+      return updatedCompanyList
     default:
       return state;
   }
