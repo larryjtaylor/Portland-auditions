@@ -57,7 +57,7 @@ class NewCompanyForm extends React.Component {
               type="text"
               id="image"
               placeholder="Use an image via URL"/>
-          <button type="submit">Help!</button>
+            <button type="submit">Add</button>
         </form>
       </div>
     );
