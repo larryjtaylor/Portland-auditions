@@ -1,12 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header(props) {
+
+  var navbar={
+    height: "100px",
+    position: "fixed",
+    width: "100%",
+    top: "0%",
+    backgroundColor: "black"
+  }
+
+  var header={
+    color: "#3366BB",
+    marginLeft: "2%",
+    paddingTop: "2%",
+    width: "150%",
+    position: "fixed",
+    color: "white"
+  }
+
+  var links={
+    position: "absolute",
+    top: "50%",
+    right: "5%",
+    color: "white"
+  }
+  var linkColor={
+    color: "white"
+
+  }
   return (
-    <div>
-      <h1>Help Queue!</h1>
-      <Link to="/">Home</Link> | <Link to="/companies">Companies</Link>
-    </div>
+    <div className="navbar navbar-default" style={navbar}>
+     <div className="container-fluid">
+       <div className="navbar-header">
+         <h1 style={header}>Portland Audition Database</h1>
+       </div>
+       <div className="nav navbar-nav navbar-right">
+         <h4 style={links}><NavLink to="/" style={linkColor}>Home</NavLink> | <NavLink to="/companies" style={linkColor}>Companies</NavLink></h4>
+       </div>
+     </div>
+   </div>
   );
 }
 
