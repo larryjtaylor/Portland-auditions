@@ -9,7 +9,9 @@ function Company(props) {
     width: "100%"
   };
   var buttonStyle = {
-    marginLeft: "5%"
+    marginLeft: "3%",
+    marginBottom: "5px",
+    marginTop: "5px"
   };
 
   let companyDetails =
@@ -20,13 +22,13 @@ function Company(props) {
             <img src={props.image} style={imageStyle}/>
           </Col>
           <Col md={6}>
-            <h3>{props.name} - {props.location}</h3>
+            <h2>{props.name}</h2>
+            <h3>{props.location}</h3>
             <p><em>{props.description}</em></p>
             <p><a href={props.url} target="blank">{props.url}</a></p>
           </Col>
         </Row>
       </Container>
-      <hr/>
     </div>;
   if (props.currentRoute === "/admin") {
     return(
@@ -39,12 +41,14 @@ function Company(props) {
           style={buttonStyle}>
           Remove Company
         </Button>
+        <hr/>
       </div>
     );
   } else {
     return(
       <div>
       {companyDetails}
+      <hr/>
       </div>
     );
   }
