@@ -1,13 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Container, Row, Col } from "reactstrap";
 
 function Company(props) {
+
+  var imageStyle = {
+    width: "100%"
+  }
+
   let companyDetails =
     <div>
-      <h3>{props.name} - {props.location}</h3>
-      <p><em>{props.description}</em></p>
-      <p><a href="{props.url}" target="blank">{props.url}</a></p>
-      (img src={props.image})
+      <Container>
+        <Row>
+          <Col md={6}>
+            <img src={props.image} style={imageStyle}/>
+          </Col>
+          <Col md={6}>
+            <h3>{props.name} - {props.location}</h3>
+            <p><em>{props.description}</em></p>
+            <p><a href={props.url} target="blank">{props.url}</a></p>
+          </Col>
+        </Row>
+      </Container>
       <hr/>
     </div>;
   if (props.currentRoute === "/admin") {
