@@ -20,7 +20,8 @@ function CompanyList(props) {
                 image={company.image}
                 key={index}
                 id={company.id}
-                currentRoute={props.currentRoute}/>
+                currentRoute={props.currentRoute}
+                handleClosingCompany={props.handleClosingCompany}/>
       )}
     </div>
   );

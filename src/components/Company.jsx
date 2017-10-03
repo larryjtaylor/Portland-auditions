@@ -1,12 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "reactstrap";
+import { Button } from "react-bootstrap";
 
 function Company(props) {
 
   var imageStyle = {
     width: "100%"
-  }
+  };
+  var buttonStyle = {
+    marginLeft: "5%"
+  };
 
   let companyDetails =
     <div>
@@ -28,7 +32,13 @@ function Company(props) {
     return(
       <div>
         {companyDetails}
-        <button onClick={() => { props.handleClosingCompany(props.id); }}>Remove Company</button>
+        <Button
+          bsStyle="danger"
+          bsSize="large"
+          onClick={() => { props.handleClosingCompany(props.id); }}
+          style={buttonStyle}>
+          Remove Company
+        </Button>
       </div>
     );
   } else {
