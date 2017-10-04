@@ -1,7 +1,8 @@
 import React from "react";
 import CompanyList from "./CompanyList";
-import { connect } from 'react-redux';
-import c from './../constants';
+import { connect } from "react-redux";
+import c from "./../constants/constants";
+import { firebase, isLoaded, isEmpty, dataToJS } from 'react-redux-firebase';
 
 class Admin extends React.Component {
 
@@ -11,31 +12,43 @@ class Admin extends React.Component {
   }
 
   handleClosingCompany(companyId) {
-    const { dispatch } = this.props;
-    const action = {
-      type: c.CLOSE_COMPANY,
-      companyId: companyId,
-    }
-    dispatch(action);
+    const { firebase } = this.props;
+    firebase.remove(`/companies/${companyId}`);
   }
 
   render() {
+    const { firebase, firebaseDatabaseObject } = this.props;
+
+    let contentFromFirebase;
+    if (!isLoaded(firebaseDatabaseObject)) {
+      contentFromFirebase = "Loading";
+    } else {
+      if (isEmpty(firebaseDatabaseObject)) {
+        contentFromFirebase = "No companies added yet!";
+      } else {
+        let newCompanyArray = [];
+        Object.keys(firebaseDatabaseObject).map(key => {
+          newCompanyArray.push(Object.assign(firebaseDatabaseObject[key], {"id": key}));
+        })
+        contentFromFirebase = <CompanyList
+          companyList = {newCompanyArray}
+          currentRoute= {this.props.location.pathname}
+          handleClosingCompany = {this.handleClosingCompany}/>
+        }
+      }
     return (
       <div>
-      <h3>This is the Admin page!</h3>
-      <CompanyList
-        companyList={this.props.adminMasterCompanyList}
-        currentRoute={this.props.location.pathname}
-        handleClosingCompany={this.handleClosingCompany}/>
+      <h3>Welcome to the Admin page!</h3>
+      {contentFromFirebase}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    adminMasterCompanyList : state
-  }
-}
+const firebaseWrappedComponent = firebase(['/companies'])(Admin);
 
-export default connect(mapStateToProps)(Admin);
+export default connect(
+  ({firebase}) => ({
+    firebaseDatabaseObject: dataToJS(firebase, 'companies')
+  })
+)(firebaseWrappedComponent);
