@@ -2,7 +2,7 @@ import React from "react";
 import CompanyList from "./CompanyList";
 import { connect } from "react-redux";
 import c from "./../constants/constants";
-import { firebase, isLoaded, isEmpty, dataToJS } from 'react-redux-firebase';
+import { firebase, isLoaded, isEmpty, dataToJS } from "react-redux-firebase";
 
 class Admin extends React.Component {
 
@@ -24,7 +24,7 @@ class Admin extends React.Component {
       contentFromFirebase = "Loading";
     } else {
       if (isEmpty(firebaseDatabaseObject)) {
-        contentFromFirebase = "No companies added yet!";
+        contentFromFirebase = "";
       } else {
         let newCompanyArray = [];
         Object.keys(firebaseDatabaseObject).map(key => {
@@ -45,10 +45,10 @@ class Admin extends React.Component {
   }
 }
 
-const firebaseWrappedComponent = firebase(['/companies'])(Admin);
+const firebaseWrappedComponent = firebase(["/companies"])(Admin);
 
 export default connect(
   ({firebase}) => ({
-    firebaseDatabaseObject: dataToJS(firebase, 'companies')
+    firebaseDatabaseObject: dataToJS(firebase, "companies")
   })
 )(firebaseWrappedComponent);
