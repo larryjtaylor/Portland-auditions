@@ -4,10 +4,11 @@ import { NavLink } from "react-router-dom";
 function Footer(props) {
 
   var navbar={
-    height: "50px",
+    height: "25px",
     position: "fixed",
     width: "100%",
-    bottom: "0%",
+    margin: "0",
+    bottom: "0",
     backgroundColor: "black",
     zIndex: "1",
     textAlign: "center"
