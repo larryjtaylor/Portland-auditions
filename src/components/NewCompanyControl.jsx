@@ -25,7 +25,7 @@ class NewCompanyControl extends React.Component {
     var buttonStyle = {
       marginLeft: "45%",
       marginBottom: "60px"
-    }
+    };
     return (
       <div>
         <Button

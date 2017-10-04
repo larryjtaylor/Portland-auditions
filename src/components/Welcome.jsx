@@ -7,10 +7,10 @@ function Welcome(){
   var welcome={
     marginTop: "125px",
     marginLeft: "5%",
-  }
+  };
   var imageStyle = {
     width: "100%"
-  }
+  };
 
   return (
       <div style={welcome}>

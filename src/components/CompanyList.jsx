@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 function CompanyList(props) {
 
   var companyHeader = {
-    marginTop: "115px",
+    marginTop: "75px",
     marginLeft: "5%"
-  }
+  };
   return (
     <div>
       <h1 style={companyHeader}>The Companies:</h1>

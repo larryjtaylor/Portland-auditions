@@ -19,7 +19,7 @@ describe("Company list reducer", () => {
   test("should add company to list array", () => {
     const { name, location, description, url, image, id } = companyInfo;
     action = {
-      type: c.ADD_TICKET,
+      type: c.ADD_COMPANY,
       name: name,
       location: location,
       description: description,

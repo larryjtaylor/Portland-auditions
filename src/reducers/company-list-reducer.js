@@ -1,4 +1,4 @@
-export default (state = [], action) => {
+const companyList = (state = [], action) => {
   switch (action.type) {
     case "ADD_COMPANY":
       const { name, location, description, url, image, id } = action;
@@ -12,11 +12,13 @@ export default (state = [], action) => {
           image: image,
           id : id
         }
-      ]
-    case 'CLOSE_COMPANY':
+      ];
+    case "CLOSE_COMPANY":
       const updatedCompanyList = state.filter(company => company.id !== action.companyId);
-      return updatedCompanyList
+      return updatedCompanyList;
     default:
       return state;
   }
 };
+
+export default companyList;

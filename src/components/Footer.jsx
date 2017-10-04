@@ -12,11 +12,11 @@ function Footer(props) {
     backgroundColor: "black",
     zIndex: "1",
     textAlign: "center"
-  }
+  };
 
   var linkColor={
     color: "white",
-  }
+  };
   return (
     // <div className="navbar navbar-default" style={navbar}>
     //  <div className="container-fluid">

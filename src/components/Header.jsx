@@ -10,7 +10,7 @@ function Header(props) {
     top: "0%",
     backgroundColor: "black",
     zIndex: "1"
-  }
+  };
 
   var header={
     color: "#3366BB",
@@ -19,18 +19,17 @@ function Header(props) {
     width: "150%",
     position: "fixed",
     color: "white"
-  }
+  };
 
   var links={
     position: "absolute",
     top: "50%",
     right: "5%",
-    color: "white"
-  }
+  };
   var linkColor={
     color: "white"
 
-  }
+  };
   return (
     <div className="navbar navbar-default" style={navbar}>
      <div className="container-fluid">
