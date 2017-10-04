@@ -36,10 +36,15 @@ class Admin extends React.Component {
           handleClosingCompany = {this.handleClosingCompany}/>
         }
       }
+      var companyHeader = {
+        marginTop: "115px",
+        marginLeft: "5%"
+      };
     return (
       <div>
-      <h3>Welcome to the Admin page!</h3>
-      {contentFromFirebase}
+        <h1 style={companyHeader}>The Companies:</h1>
+        <hr/>
+        {contentFromFirebase}
       </div>
     );
   }
