@@ -1,28 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-
 import reducer from "./reducers/company-list-reducer";
 import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
-
-import { createStore, applyMiddleware } from "redux";
+import combinedReducer from "./reducers/index";
+import { createStore, applyMiddleware,  compose } from "redux";
 import middlewareLogger from "./middleware/middleware-logger";
-import persistDataLocally from "./middleware/persist-local-storage-data";
+import { reduxFirebase } from "react-redux-firebase";
+import firebaseCredentials from "./constants/apiKeys.js";
 
-let retrievedState;
-try {
-  retrievedState = localStorage.getItem("reduxStore");
-  if (retrievedState === null) {
-    retrievedState = [];
-  } else {
-    retrievedState = JSON.parse(retrievedState);
-  }
-} catch (err) {
-  retrievedState = [];
-}
+const createStoreWithFirebaseMiddleware = compose(
+  reduxFirebase(firebaseCredentials)
+)(createStore);
 
-const store = createStore(reducer, retrievedState, applyMiddleware(middlewareLogger, persistDataLocally));
+const store = createStoreWithFirebaseMiddleware(
+  combinedReducer,
+  applyMiddleware(middlewareLogger)
+);
 
 ReactDOM.render(
   <Provider store={store}>
