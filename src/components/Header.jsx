@@ -8,7 +8,7 @@ function Header(props) {
     position: "fixed",
     width: "100%",
     top: "0%",
-    backgroundColor: "black",
+    background: "linear-gradient(#696969, #000000)",
     zIndex: "1"
   };
 
@@ -37,7 +37,7 @@ function Header(props) {
          <h1 style={header}>Portland Audition Database</h1>
        </div>
        <div className="nav navbar-nav navbar-right">
-         <h4 style={links}><NavLink to="/" style={linkColor}>Home</NavLink> | <NavLink to="/companies" style={linkColor}>Companies</NavLink> | <NavLink to="/contact" style={linkColor}>Contact</NavLink></h4>
+         <h4 style={links}><NavLink to="/" style={linkColor}>Home</NavLink> | <NavLink to="/companies" style={linkColor}>Companies</NavLink> | <NavLink to="/auditions" style={linkColor}>Auditions</NavLink> | <NavLink to="/contact" style={linkColor}>Contact</NavLink></h4>
        </div>
      </div>
    </div>

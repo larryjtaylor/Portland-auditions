@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Companies from "./Companies";
 import Contact from "./Contact";
 import Admin from "./Admin";
+import Auditions from "./Auditions";
 import Welcome from "./Welcome";
 import { Switch, Route } from "react-router-dom";
 
@@ -14,6 +15,7 @@ function App(props) {
       <Switch>
         <Route exact path="/" component={Welcome}/>
         <Route path="/companies" component={Companies}/>
+        <Route path="/auditions" component={Auditions}/>
         <Route path="/contact" component={Contact}/>
         <Route path="/admin" component={Admin}/>
       </Switch>
