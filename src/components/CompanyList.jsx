@@ -4,14 +4,9 @@ import PropTypes from "prop-types";
 
 function CompanyList(props) {
 
-  var companyHeader = {
-    marginTop: "75px",
-    marginLeft: "5%"
-  };
+
   return (
     <div>
-      <h1 style={companyHeader}>The Companies:</h1>
-      <hr/>
       {props.companyList.map((company, index) =>
         <Company name={company.name}
                 location={company.location}

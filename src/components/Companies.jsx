@@ -18,7 +18,7 @@ class Companies extends React.Component {
           contentFromFirebase = "Loading";
         } else {
           if (isEmpty(firebaseDatabaseObject)) {
-            contentFromFirebase = "No companies added yet!";
+            contentFromFirebase = "";
           } else {
             let newCompanyArray = [];
             Object.keys(firebaseDatabaseObject).map(key => {
@@ -28,8 +28,15 @@ class Companies extends React.Component {
           }
         }
 
+    var companyHeader = {
+      marginTop: "115px",
+      marginLeft: "5%"
+    };
+
     return(
       <div>
+        <h1 style={companyHeader}>The Companies:</h1>
+        <hr/>
         {contentFromFirebase}
           <NewCompanyControl />
       </div>
