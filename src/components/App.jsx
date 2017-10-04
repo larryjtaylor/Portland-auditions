@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 import Companies from "./Companies";
 import Admin from "./Admin";
 import Welcome from "./Welcome";
@@ -14,6 +15,7 @@ function App(props) {
         <Route path="/companies" component={Companies}/>
         <Route path="/admin" component={Admin}/>
       </Switch>
+      <Footer/>
     </div>
   );
 }
