@@ -26,7 +26,7 @@ var imageStyle = {
             <p>Address:</p>
             <p>Description of company (under 200 words):</p>
             <p>Company website url:</p>
-            <p>One photo you would like to use, whether it is your theater space, artistic team, recent production, etc.:</p>
+            <p>One photo you would like to use, whether it is your theater space, artistic team, a recent production, etc.:</p>
           </Col>
           <Col md={7}>
             <img src={Image} style={imageStyle}></img>
