@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import c from "./../constants/constants";
 import { firebaseConnect } from "react-redux-firebase";
+import { Button } from "react-bootstrap";
 
 class NewCompanyForm extends React.Component {
 
@@ -27,34 +28,62 @@ class NewCompanyForm extends React.Component {
   }
 
   render() {
+
+    var spacing = {
+      marginLeft: "10px",
+    };
+    var center = {
+      marginLeft: "14%"
+    }
+    var textArea = {
+      width: "80%",
+      marginTop: "10px",
+      marginLeft: "11%"
+    }
+    var buttonStyle = {
+      display: "block",
+      margin: "auto"
+    }
     return(
       <div>
         <form onSubmit={this.handleNewCompanyFormSubmission}>
           <input
-              ref="_name"
-              type="text"
-              id="name"
-              placeholder="Company Name"/>
+            ref="_name"
+            type="text"
+            id="name"
+            placeholder="Company Name"
+            style={center}/>
           <input
-              ref="_location"
-              type="text"
-              id="location"
-              placeholder="Location"/>
+            ref="_location"
+            type="text"
+            id="location"
+            placeholder="Location"
+            style={spacing}/>
+          <input
+            ref="_url"
+            type="text"
+            id="url"
+            placeholder="Company website"
+            style={spacing}/>
+          <input
+            ref="_image"
+            type="text"
+            id="image"
+            placeholder="Use an image via URL"
+            style={spacing}/>
+          <br/>
           <textarea
-              ref="_description"
-              id="description"
-              placeholder="Describe your company"/>
-          <input
-              ref="_url"
-              type="text"
-              id="url"
-              placeholder="Company website"/>
-          <input
-              ref="_image"
-              type="text"
-              id="image"
-              placeholder="Use an image via URL"/>
-            <button type="submit">Add</button>
+            ref="_description"
+            id="description"
+            placeholder="Describe your company in fewer than 200 words"
+            style={textArea}/>
+          <br/>
+          <Button
+            type="submit"
+            bsStyle="success"
+            style={buttonStyle}>
+            Add
+          </Button>
         </form>
       </div>
     );
