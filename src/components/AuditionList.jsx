@@ -9,9 +9,11 @@ function AuditionList(props) {
     <div>
       {props.auditionList.map((audition, index) =>
         <Audition date={audition.date}
+                company={audition.company}
                 showName={audition.showName}
                 director={audition.director}
                 description={audition.description}
+                showType={audition.showType}
                 url={audition.url}
                 key={index}
                 id={audition.id}

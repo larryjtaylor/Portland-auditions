@@ -38,7 +38,7 @@ class NewAuditionControl extends React.Component {
         <Modal
             show={this.state.formModalIsShowing}
             onHide={this.hideFormModal}
-            bsSize="large">
+            bsSize="medium">
           <Modal.Header>
             <Modal.Title>Add an Audition</Modal.Title>
           </Modal.Header>

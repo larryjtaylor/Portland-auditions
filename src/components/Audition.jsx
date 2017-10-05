@@ -14,10 +14,11 @@ function Audition(props) {
   let auditionDetails =
     <div>
       <h2>{props.date}</h2>
+      <h3>{props.company}</h3>
       <h3>{props.showName}</h3>
       <h4>{props.director}</h4>
       <p><em>{props.description}</em></p>
-      <p>{props.type}</p>
+      <p>{props.showType}</p>
       <p><a href={props.url} target="blank">{props.url}</a></p>
     </div>;
   if (props.currentRoute === "/admin") {
@@ -46,10 +47,11 @@ function Audition(props) {
 
 Audition.propTypes = {
   date: PropTypes.string.isRequired,
+  company: PropTypes.string.isRequired,
   showName: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  showType: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   currentRoute: PropTypes.string,
   handleClosingAudition: PropTypes.func,
