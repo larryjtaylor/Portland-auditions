@@ -18,13 +18,10 @@ function Footer(props) {
     color: "white",
   };
   return (
-    // <div className="navbar navbar-default" style={navbar}>
-    //  <div className="container-fluid">
+
        <div className="navbar-footer">
          <h4 style={navbar}><NavLink to="/admin" style={linkColor}>Admin</NavLink></h4>
        </div>
-    //  </div>
-  //  </div>
   );
 }
 
