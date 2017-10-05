@@ -11,20 +11,21 @@ class Companies extends React.Component {
   }
 
   render() {
-    const { firebase, firebaseDatabaseObject } = this.props;
+    const { firebase, firebaseDatabaseObjectCompanies } = this.props;
 
-    let contentFromFirebase;
-        if (!isLoaded(firebaseDatabaseObject)) {
-          contentFromFirebase = "Loading";
+    let companiesFromFirebase;
+        if (!isLoaded(firebaseDatabaseObjectCompanies)) {
+          companiesFromFirebase = "Loading";
         } else {
-          if (isEmpty(firebaseDatabaseObject)) {
-            contentFromFirebase = "";
+          if (isEmpty(firebaseDatabaseObjectCompanies)) {
+            companiesFromFirebase = "";
           } else {
             let newCompanyArray = [];
-            Object.keys(firebaseDatabaseObject).map(key => {
-              newCompanyArray.push(Object.assign(firebaseDatabaseObject[key], {"id": key}));
+            Object.keys(firebaseDatabaseObjectCompanies).map(key => {
+              newCompanyArray.push(Object.assign(firebaseDatabaseObjectCompanies[key], {"id": key}));
             });
-            contentFromFirebase = <CompanyList companyList = {newCompanyArray} />
+            companiesFromFirebase = <CompanyList 
+                                    companyList = {newCompanyArray}/>
           }
         }
 
@@ -37,7 +38,7 @@ class Companies extends React.Component {
       <div>
         <h1 style={companyHeader}>The Companies:</h1>
         <hr/>
-        {contentFromFirebase}
+        {companiesFromFirebase}
           <NewCompanyControl />
       </div>
     );
@@ -48,6 +49,6 @@ const firebaseWrappedComponent = firebase(["/companies"])(Companies);
 
 export default connect(
   ({firebase}) => ({
-    firebaseDatabaseObject: dataToJS(firebase, "companies")
+    firebaseDatabaseObjectCompanies: dataToJS(firebase, "companies")
   })
 )(firebaseWrappedComponent);

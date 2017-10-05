@@ -25,6 +25,7 @@ function Header(props) {
     position: "absolute",
     top: "50%",
     right: "5%",
+    color: "white"
   };
   var linkColor={
     color: "white"

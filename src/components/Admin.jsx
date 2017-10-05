@@ -24,18 +24,18 @@ class Admin extends React.Component {
   }
 
   render() {
-    const { firebase, firebaseDatabaseObject } = this.props;
+    const { firebase, firebaseDatabaseObjectCompanies, firebaseDatabaseObjectAuditions } = this.props;
 
     let companiesFromFirebase;
-    if (!isLoaded(firebaseDatabaseObject)) {
+    if (!isLoaded(firebaseDatabaseObjectCompanies)) {
       companiesFromFirebase = "Loading";
     } else {
-      if (isEmpty(firebaseDatabaseObject)) {
+      if (isEmpty(firebaseDatabaseObjectCompanies)) {
         companiesFromFirebase = "";
       } else {
         let newCompanyArray = [];
-        Object.keys(firebaseDatabaseObject).map(key => {
-          newCompanyArray.push(Object.assign(firebaseDatabaseObject[key], {"id": key}));
+        Object.keys(firebaseDatabaseObjectCompanies).map(key => {
+          newCompanyArray.push(Object.assign(firebaseDatabaseObjectCompanies[key], {"id": key}));
         })
         companiesFromFirebase =
         <CompanyList
@@ -45,15 +45,15 @@ class Admin extends React.Component {
         }
       }
     let auditionsFromFirebase
-    if (!isLoaded(firebaseDatabaseObject)) {
+    if (!isLoaded(firebaseDatabaseObjectAuditions)) {
       auditionsFromFirebase = "Loading";
     } else {
-      if (isEmpty(firebaseDatabaseObject)) {
+      if (isEmpty(firebaseDatabaseObjectAuditions)) {
         auditionsFromFirebase = "";
       } else {
         let newAuditionArray = [];
-        Object.keys(firebaseDatabaseObject).map(key => {
-          newAuditionArray.push(Object.assign(firebaseDatabaseObject[key], {"id": key}));
+        Object.keys(firebaseDatabaseObjectAuditions).map(key => {
+          newAuditionArray.push(Object.assign(firebaseDatabaseObjectAuditions[key], {"id": key}));
         })
         auditionsFromFirebase =
         <AuditionList
@@ -81,10 +81,11 @@ class Admin extends React.Component {
   }
 }
 
-const firebaseWrappedComponent = firebase(["/companies"], ["/auditions"])(Admin);
+const firebaseWrappedComponent = firebase(["/companies", "/auditions"])(Admin);
 
 export default connect(
   ({firebase}) => ({
-    firebaseDatabaseObject: dataToJS(firebase, "companies")
+    firebaseDatabaseObjectCompanies: dataToJS(firebase, "companies"),
+    firebaseDatabaseObjectAuditions: dataToJS(firebase, "auditions")
   })
 )(firebaseWrappedComponent);

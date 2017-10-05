@@ -11,18 +11,18 @@ class Auditions extends React.Component {
   }
 
   render() {
-    const { firebase, firebaseDatabaseObject } = this.props;
+    const { firebase, firebaseDatabaseObjectAuditions } = this.props;
 
     let auditionsFromFirebase;
-        if (!isLoaded(firebaseDatabaseObject)) {
+        if (!isLoaded(firebaseDatabaseObjectAuditions)) {
           auditionsFromFirebase = "Loading";
         } else {
-          if (isEmpty(firebaseDatabaseObject)) {
+          if (isEmpty(firebaseDatabaseObjectAuditions)) {
             auditionsFromFirebase = "";
           } else {
             let newAuditionArray = [];
-            Object.keys(firebaseDatabaseObject).map(key => {
-              newAuditionArray.push(Object.assign(firebaseDatabaseObject[key], {"id": key}));
+            Object.keys(firebaseDatabaseObjectAuditions).map(key => {
+              newAuditionArray.push(Object.assign(firebaseDatabaseObjectAuditions[key], {"id": key}));
             });
             auditionsFromFirebase = <AuditionList auditionList = {newAuditionArray} />
           }
@@ -48,6 +48,6 @@ const firebaseWrappedComponent = firebase(["/auditions"])(Auditions);
 
 export default connect(
   ({firebase}) => ({
-    firebaseDatabaseObject: dataToJS(firebase, "auditions")
+    firebaseDatabaseObjectAuditions: dataToJS(firebase, "auditions")
   })
 )(firebaseWrappedComponent);

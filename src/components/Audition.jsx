@@ -13,14 +13,15 @@ function Audition(props) {
 
   let auditionDetails =
     <div>
-      <h2>{props.date}</h2>
+      <h3>{props.date}</h3>
       <h3>{props.company}</h3>
-      <h3>{props.showName}</h3>
-      <h4>{props.director}</h4>
-      <p><em>{props.description}</em></p>
+      <h3><em>{props.showName}</em></h3>
+      <h4>Dir: {props.director}</h4>
+      <p>{props.description}</p>
       <p>{props.showType}</p>
       <p><a href={props.url} target="blank">{props.url}</a></p>
-    </div>;
+    </div>
+
   if (props.currentRoute === "/admin") {
     return(
       <div>

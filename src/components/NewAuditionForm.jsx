@@ -17,13 +17,13 @@ class NewAuditionForm extends React.Component {
     const { _date, _company, _showName, _director, _description, _showType, _url } = this.refs;
     const { firebase } = this.props;
     firebase.push("/auditions", {
-      type: c.ADD_Audition,
+      type: c.ADD_AUDITION,
       date: _date.value,
       company: _company.value,
       showName: _showName.value,
       director: _director.value,
       description: _description.value,
-      showType: _description.value,
+      showType: _showType.value,
       url: _url.value,
     });
     this.props.hideFormAfterSubmission();
@@ -54,7 +54,7 @@ class NewAuditionForm extends React.Component {
             ref="_date"
             type="text"
             id="date"
-            placeholder="Audition date"
+            placeholder="Audition mm/dd/yyyy"
             style={center}/>
           <input
             ref="_company"
