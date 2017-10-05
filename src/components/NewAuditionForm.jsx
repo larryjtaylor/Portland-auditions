@@ -13,14 +13,15 @@ class NewAuditionForm extends React.Component {
 
   handleNewAuditionFormSubmission(event) {
     event.preventDefault();
-    const { _date, _showName, _director, _description, _url } = this.refs;
+    const { _date, _showName, _director, _description, _type, _url } = this.refs;
     const { firebase } = this.props;
     firebase.push("/auditions", {
       type: c.ADD_Audition,
       date: _date.value,
       showName: _showName.value,
-      director: _director.value
+      director: _director.value,
       description: _description.value,
+      type: _description.value,
       url: _url.value,
     });
     this.props.hideFormAfterSubmission();
@@ -49,6 +50,11 @@ class NewAuditionForm extends React.Component {
             ref="_description"
             id="description"
             placeholder="Describe the show"/>
+          <input
+            ref="_type"
+            type="text"
+            id="type"
+            placeholder="Musical or Play?"/>
           <input
             ref="_url"
             type="text"

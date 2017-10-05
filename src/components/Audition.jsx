@@ -15,8 +15,9 @@ function Audition(props) {
     <div>
       <h2>{props.date}</h2>
       <h3>{props.showName}</h3>
-      <h3>{props.director}</h3>
+      <h4>{props.director}</h4>
       <p><em>{props.description}</em></p>
+      <p>{props.type}</p>
       <p><a href={props.url} target="blank">{props.url}</a></p>
     </div>;
   if (props.currentRoute === "/admin") {
@@ -48,6 +49,7 @@ Audition.propTypes = {
   showName: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   currentRoute: PropTypes.string,
   handleClosingAudition: PropTypes.func,
