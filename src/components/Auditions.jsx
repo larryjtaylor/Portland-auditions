@@ -13,18 +13,18 @@ class Auditions extends React.Component {
   render() {
     const { firebase, firebaseDatabaseObject } = this.props;
 
-    let contentFromFirebase;
+    let auditionsFromFirebase;
         if (!isLoaded(firebaseDatabaseObject)) {
-          contentFromFirebase = "Loading";
+          auditionsFromFirebase = "Loading";
         } else {
           if (isEmpty(firebaseDatabaseObject)) {
-            contentFromFirebase = "";
+            auditionsFromFirebase = "";
           } else {
             let newAuditionArray = [];
             Object.keys(firebaseDatabaseObject).map(key => {
               newAuditionArray.push(Object.assign(firebaseDatabaseObject[key], {"id": key}));
             });
-            contentFromFirebase = <AuditionList auditionList = {newAuditionArray} />
+            auditionsFromFirebase = <AuditionList auditionList = {newAuditionArray} />
           }
         }
 
@@ -37,7 +37,7 @@ class Auditions extends React.Component {
       <div>
         <h1 style={auditionHeader}>Upcoming Auditions:</h1>
         <hr/>
-        {contentFromFirebase}
+        {auditionsFromFirebase}
           <NewAuditionControl />
       </div>
     );
